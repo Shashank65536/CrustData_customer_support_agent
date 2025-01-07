@@ -12,9 +12,9 @@ import org.springframework.stereotype.Controller;
 public class ChatController {
     @Autowired
     SimpMessagingTemplate simpMessagingTemplate;
-    @MessageMapping("/chat/guest")
-    @SendTo("/topic/chat")
-    public ChatMessage handleChatMessage(@DestinationVariable String chatId, ChatMessage message) {
+    @MessageMapping("/hello")
+    @SendTo("/topic/greeting")
+    public ChatMessage handleChatMessage( ChatMessage message) {
 
         System.out.print(message);
         return  new ChatMessage(message.getMessage());
