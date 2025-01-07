@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-
+import './App.css';
 function App() {
   
   const [stompClient, setStompClient] = useState(null);
@@ -46,22 +46,29 @@ function App() {
   };
 
   return (
-    <div style={{ width: '400px', margin: '0 auto' }}>
-      <h3>Crustdata API Chat</h3>
-      <div style={{ border: '1px solid #ccc', height: '300px', overflowY: 'scroll', marginBottom: '10px' }}>
-        {messages.map((msg, idx) => (
-          <div key={idx}>
-            <strong>{msg.sender}:</strong> {msg.content}
-          </div>
-        ))}
+    <div className="app">
+      <div className="chat-container">
+        <h3>Crustdata API Chat</h3>
+
+        <div className="message-container">
+          {console.log(messages)}
+          {messages.map((msg, idx) => (
+            <div key={idx} className="message">
+              <strong>{msg.sender}</strong> {msg.content}
+            </div>
+          ))}
+        </div>
+
+        <div className="input-container">
+          <input
+            className="chat-input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter') sendMessage(); }}
+          />
+          <button onClick={sendMessage}>Send</button>
+        </div>
       </div>
-      <input
-        style={{ width: '80%' }}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') sendMessage(); }}
-      />
-      <button onClick={sendMessage}>Send</button>
     </div>
   );
 }

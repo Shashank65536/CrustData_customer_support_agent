@@ -1,42 +1,77 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Ensure the html/body take up the full viewport height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Parent container for full-screen centering */
+.app {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background: #a33636; /* optional background color */
+}
+
+/* Chat container box */
+.chat-container {
+  width: 100vh;
+  font-family: Arial, sans-serif;
+  background: #ad9393;
+  border: 1px solid #542b2b;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(213, 18, 18, 0.1);
+}
+
+/* The header/title of the chat */
+.chat-container h3 {
   text-align: center;
+  margin-top: 0;
+  color: #e91e63; 
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Scrollable message box */
+.message-container {
+  border: 1px solid #641b1b;
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  background: #fafafa;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Individual message styling */
+.message {
+  margin-bottom: 8px;
+  color: #6e2525;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Input container holds input + button side by side */
+.input-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+/* Chat input styling */
+.chat-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #1a0808;
 }
 
-.read-the-docs {
-  color: #888;
+/* Button styling */
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #4285f4;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3072cf;
 }
